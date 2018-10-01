@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import SelectWrapper from "./components/selectWrapper";
+import SelectWrapper from "./components/SelectWrapper/SelectWrapper";
 
 class Renderer extends Component {
 //     state = {  }

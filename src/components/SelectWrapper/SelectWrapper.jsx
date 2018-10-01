@@ -10,18 +10,19 @@ const scaryAnimals = [
     { label: "Snakes", value: 6 },
 ];
 
-class SelectWrapper extends Component {
-    // state = {  }
-    render() {
-        return (
-            <div className="row">
-                <h1>Select wrapper test</h1>
-                <div className="col-md-offset-3 col-md-6">
-                    <Select options={scaryAnimals} />
-                </div>
+function SelectWrapper({ title }) {
+    return (
+        <div className="row">
+            <h1>{ title || 'Select wrapper test' }</h1>
+            <div className="col-md-offset-3 col-md-6">
+                <Select options={scaryAnimals} />
             </div>
-        );
-    }
+        </div>
+    );
 }
- 
+
+SelectWrapper.propTypes = {
+    title: PropTypes.string
+};
+
 export default SelectWrapper;
