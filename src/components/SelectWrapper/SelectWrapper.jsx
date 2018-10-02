@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
+
+const defaultTitle = 'Select wrapper test';
 
 const scaryAnimals = [
     { label: "Alligators", value: 1 },
@@ -10,10 +13,11 @@ const scaryAnimals = [
     { label: "Snakes", value: 6 },
 ];
 
+/** Select searchbox wrapper */
 function SelectWrapper({ title }) {
     return (
         <div className="row">
-            <h1>{ title || 'Select wrapper test' }</h1>
+            <h1>{ title || defaultTitle }</h1>
             <div className="col-md-offset-3 col-md-6">
                 <Select options={scaryAnimals} />
             </div>
@@ -22,7 +26,11 @@ function SelectWrapper({ title }) {
 }
 
 SelectWrapper.propTypes = {
+    /** Title of the select */
     title: PropTypes.string
+};
+SelectWrapper.defaultProps = {
+    title: defaultTitle
 };
 
 export default SelectWrapper;

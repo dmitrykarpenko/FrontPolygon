@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// TODO: use later on
-//import CodeExample from './CodeExample';
+import CodeExample from './CodeExample';
 
 class Example extends React.Component {
   constructor(props) {
@@ -22,21 +21,20 @@ class Example extends React.Component {
     // Must use CommonJS require to dynamically require because ES Modules must be statically analyzable.
     const ExampleComponent = require(`./examples/${this.props.componentName}/${name}`).default;
     return (
-      <div className="example">
-        {description && <h4>{description}</h4> }
+      <div className="row">
+        <div className="example col-md-9">
+          {description && <h4>{description}</h4> }
 
-        <ExampleComponent />
+          <ExampleComponent />
 
-        <p>
-          <a href="" onClick={this.toggleCode}>
-            {showCode ? "Hide" : "Show"} Code
-          </a>
-        </p>
+          <p>
+            <a href="" className="btn btn-default" onClick={this.toggleCode}>
+              {showCode ? "Hide" : "Show"} Code
+            </a>
+          </p>
 
-        {showCode &&
-          // <CodeExample>{code}</CodeExample>
-          code
-        }
+          {showCode &&<CodeExample>{code}</CodeExample>}
+        </div>
       </div>
     )
   }
