@@ -56,13 +56,14 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [
-    require.resolve('./polyfills'),
-    paths.appIndexJs,
+  // 'entry' originally was an array
+  entry: {
+    'polyfills': require.resolve('./polyfills'),
+    'index': paths.appIndexJs,
 
-    // // uncomment to build "renderer" into a bundle file
-    // './src/renderer'
-  ],
+    // uncomment to build "renderer" into a bundle file
+    'renderer': './src/renderer'
+  },
   output: {
     // The build folder.
     path: paths.appBuild,
